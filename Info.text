@@ -41,3 +41,10 @@ export const config = {
 12. Create hooks for modals
 13. Create modal providers
 14. import modalproviders in layout.tsx
+
+
+#Form in modal
+
+15. install shadcn form and input
+16. create formSchema in store-modal.txs and import * as z from "zod". 
+17. use zodResolver in store-modal.tsx
