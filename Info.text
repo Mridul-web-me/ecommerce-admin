@@ -1,0 +1,35 @@
+1.First create next app. 
+npx create-next-app@latest ecommerce-admin --typescript --tailwind --eslint
+
+2.Then install shadcn-ui
+npx shadcn-ui@latest init
+
+3. install shadcn button
+npx shadcn-ui@latest add button
+
+
+##Create clerk authentication account then setup env.
+
+4. Install clerk authentication
+npm install @clerk/nextjs
+
+5. Then create new file middleware.ts 
+
+import { authMiddleware } from "@clerk/nextjs";
+
+export default authMiddleware();
+
+export const config = {
+  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+};
+
+
+6. Create auth folder in app
+7. Create routes folder in auth
+8. Create sign-up folder in routes
+9. Create [[..,sign-up]] folder in sign-up 
+10. Reapeted in Sign-in authentication
+
+11. create layout.tsx in app folder
+
+12. 
