@@ -32,4 +32,12 @@ export const config = {
 
 11. create layout.tsx in app folder
 
-12. 
+#Create modal component for create store
+
+12. step 1.  
+
+#npx shadcn-ui@latest add dialog
+
+12. Create hooks for modals
+13. Create modal providers
+14. import modalproviders in layout.tsx
