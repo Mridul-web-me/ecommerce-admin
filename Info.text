@@ -48,3 +48,18 @@ export const config = {
 15. install shadcn form and input
 16. create formSchema in store-modal.txs and import * as z from "zod". 
 17. use zodResolver in store-modal.tsx
+
+
+
+#Install prisma
+17, #npm i -D prisma
+18. #npm i @prisma/client
+19. npx prisma init
+
+20. create a prismadb.ts file in libs
+
+
+then create an account in planetscale database. connect to the database in prisma. 
+
+then run this command
+21. npx prisma generate
