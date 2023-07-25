@@ -6,18 +6,18 @@ import { NextResponse } from "next/server"
 
 export async function GET(
     req: Request,
-     {params} : {params: {categoryId: string}}
+    { params }: {  params: { categoriesId: string, } }
 
 ) {
     try {
         
-        if(!params.categoryId){
+        if(!params.categoriesId){
             return new NextResponse("Category id is required", {status: 400});
         }
 
         const category = await prismadb.category.findUnique({
             where: {
-                id:params.categoryId,
+                id: params.categoriesId
             }
         })
 
@@ -30,7 +30,7 @@ export async function GET(
 
 export async function PATCH(
     req: Request,
-     {params} : {params: {storeId: string, categoryId: string}}
+     {params} : {params: {storeId: string, categoriesId: string}}
 
 ) {
     try {
@@ -49,7 +49,7 @@ export async function PATCH(
             return new NextResponse("Billboard Id is required", {status: 400});
         }
 
-        if(!params.categoryId){
+        if(!params.categoriesId){
             return new NextResponse("Category id is required", {status: 400});
         }
 
@@ -64,9 +64,9 @@ export async function PATCH(
             return new NextResponse("Unauthorized", {status: 403})
         }
 
-        const Category = await prismadb.category.updateMany({
+        const category = await prismadb.category.updateMany({
             where: {
-                id:params.categoryId,
+                id:params.categoriesId,
             },
             data: {
               name,
@@ -74,7 +74,7 @@ export async function PATCH(
             }
         })
 
-        return NextResponse.json(Category)
+        return NextResponse.json(category)
     } catch (error) {
         console.log('[CATEGORY_PATCH]', error)
         return new NextResponse("Internal error", {status: 500});
@@ -83,7 +83,7 @@ export async function PATCH(
 
 export async function DELETE(
     req: Request,
-     {params} : {params: {storeId: string, categoryId: string}}
+     {params} : {params: {storeId: string, categoriesId: string}}
 
 ) {
     try {
@@ -95,7 +95,7 @@ export async function DELETE(
         }
        
 
-        if(!params.categoryId){
+        if(!params.categoriesId){
             return new NextResponse("Category id is required", {status: 400});
         }
 
@@ -112,7 +112,7 @@ export async function DELETE(
 
         const category = await prismadb.category.deleteMany({
             where: {
-                id:params.categoryId,
+                id:params.categoriesId,
             }
         })
 

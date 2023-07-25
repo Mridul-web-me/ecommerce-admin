@@ -19,8 +19,8 @@ interface CategoriesClientProps {
 export const CategoriesClient: React.FC<CategoriesClientProps> = ({
   data
 }) => {
-  const params = useParams();
   const router = useRouter();
+  const params = useParams();
 
   return (
     <>
@@ -34,7 +34,7 @@ export const CategoriesClient: React.FC<CategoriesClientProps> = ({
       <DataTable searchKey="name" columns={columns} data={data} />
       <Heading title="API" description="API Calls for Categories" />
       <Separator />
-      <ApiList entityName="categories" entityIdName="categoryId" />
+      <ApiList entityName="categories" entityIdName="categoriesId" />
     </>
   );
 };

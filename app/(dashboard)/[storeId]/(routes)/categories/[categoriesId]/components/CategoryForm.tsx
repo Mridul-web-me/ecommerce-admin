@@ -26,7 +26,7 @@ import { AlertModal } from "@/components/modals/alert-modal"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 const formSchema = z.object({
-  name: z.string().min(2),
+  name: z.string().min(1),
   billboardId: z.string().min(1),
 });
 
@@ -64,7 +64,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
     try {
       setLoading(true);
       if (initialData) {
-        await axios.patch(`/api/${params.storeId}/categories/${params.categoryId}`, data);
+        await axios.patch(`/api/${params.storeId}/categories/${params.categoriesId}`, data);
       } else {
         await axios.post(`/api/${params.storeId}/categories`, data);
       }
@@ -81,7 +81,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
   const onDelete = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/${params.storeId}/categories/${params.categoryId}`);
+      await axios.delete(`/api/${params.storeId}/categories/${params.categoriesId}`);
       router.refresh();
       router.push(`/${params.storeId}/categories`);
       toast.success('Category deleted.');

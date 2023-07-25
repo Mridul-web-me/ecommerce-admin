@@ -5,7 +5,6 @@ import prismadb from "@/lib/prismadb";
 import { CategoryColumn } from "./components/columns"
 import { CategoriesClient } from "./components/client";
 
-
 const CategoriesPage = async ({
   params
 }: {
@@ -21,13 +20,16 @@ const CategoriesPage = async ({
     orderBy: {
       createdAt: 'desc'
     }
-  });
+    
+  }
+  );
 
   const formattedCategories: CategoryColumn[] = categories.map((item) => ({
     id: item.id,
     name: item.name,
     billboardLabel: item.billboard.label,
     createdAt: format(item.createdAt, 'MMMM do, yyyy'),
+    
   }));
 
   return (
