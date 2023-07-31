@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 
-export const formattor = new Intl.NumberFormat("en-us", {
+export const formatter = new Intl.NumberFormat("en-us", {
   style: "currency",
   currency: "USD"
 });
