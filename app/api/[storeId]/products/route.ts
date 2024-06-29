@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server';
-import { auth } from '@clerk/nextjs';
+// import { auth } from '@clerk/nextjs';
 
 import prismadb from '@/lib/prismadb';
+import { auth } from '@clerk/nextjs';
+// import { auth } from '@clerk/nextjs';
 
 export async function POST(req: Request, { params }: { params: { storeId: string } }) {
   try {

@@ -1,5 +1,6 @@
 import prismadb from '@/lib/prismadb';
 import { auth } from '@clerk/nextjs';
+// import { auth } from '@clerk/nextjs';
 import { NextResponse } from 'next/server';
 
 export async function GET(req: Request, { params }: { params: { productId: string } }) {
