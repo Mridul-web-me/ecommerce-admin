@@ -10,6 +10,14 @@ const OrderPgae = async({
 } : {
   params: {storeId: string}
 }) => {
+
+
+  const order = await prismadb.product.findUnique({
+    where: {
+        id: params.storeId
+    },
+});
+
   const orders = await prismadb.order.findMany({
     where: {
       storeId: params.storeId
@@ -35,13 +43,13 @@ const OrderPgae = async({
       return total + Number(item.product.price)
     }, 0)),
     isPaid: item.isPaid,
-    createdAt: format(item.createdAt, "MMM do, yyyy")
+    createdAt: format(item.createdAt, "MMM do, yyyy"),
   }))
 
   return (
     <div className="flex-col">
         <div className="flex-1 space-y-4 p-8 pt-6">
-            <OrderClient data={formattedOrders} />
+            <OrderClient data={formattedOrders}/>
         </div>
     </div>
   )
