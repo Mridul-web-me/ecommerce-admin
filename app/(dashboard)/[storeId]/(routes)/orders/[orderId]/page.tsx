@@ -12,11 +12,7 @@ const OrderPage = async ({ params }: { params: { orderId: string } }) => {
 
   return (
     <div className="flex-col">
-      {/* <div className="flex-1 space-y-4 p-8 pt-6">
-            <OrderDelete
-                initialData={order}
-            />
-        </div> */}
+      <div className="flex-1 space-y-4 p-8 pt-6">{order ? <OrderDelete initialData={order} /> : <p>Order not found</p>}</div>
     </div>
   );
 };
